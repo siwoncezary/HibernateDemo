@@ -1,5 +1,6 @@
 import javax.persistence.*;
 import java.lang.annotation.Target;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -14,7 +15,7 @@ public class Author {
   private String name;
 
   @OneToMany(mappedBy = "author")
-  private Set<Article> articles;
+  private Set<Article> articles = new HashSet<Article>();
 
   public long getId() {
     return id;

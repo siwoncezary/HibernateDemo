@@ -1,5 +1,7 @@
 import com.sun.javafx.beans.IDProperty;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="article")
@@ -18,6 +20,14 @@ public class Article {
   @ManyToOne
   @JoinColumn(name="author_id", nullable=false)
   private Author author;
+
+  @ManyToMany(cascade = { CascadeType.ALL} )
+  @JoinTable(
+          name = "article_tag",
+          joinColumns = {@JoinColumn(name="article_id")},
+          inverseJoinColumns = {@JoinColumn(name ="tag_id")}
+          )
+  private Set<Tag> tags = new HashSet<Tag>();
 
   public long getId() {
     return id;
@@ -49,5 +59,13 @@ public class Article {
 
   public void setAuthor(Author author) {
     this.author = author;
+  }
+
+  public Set<Tag> getTags() {
+    return tags;
+  }
+
+  public void setTags(Set<Tag> tags) {
+    this.tags = tags;
   }
 }
