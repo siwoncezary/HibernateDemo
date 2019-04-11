@@ -12,18 +12,19 @@ public class Main {
     EntityManager em = emf.createEntityManager();
     //creating author
     Author a = new Author();
-    a.setName("TOLEK");
+    a.setFirstName("JAROSŁAW");
+    a.setLastName("BACZYNSKI");
     Article art = new Article();
     //adding author to article
     art.setAuthor(a);
-    art.setTitle("Hello");
-    art.setContent("Hello World");
+    art.setTitle("1000+");
+    art.setContent("Dla Każdego");
     //creating two tga
     Tag t1 = new Tag();
     t1.setTitle("Java");
     t1.setArticles(new HashSet<Article>(Arrays.asList(art)));
     Tag t2 = new Tag();
-    t2.setTitle("Hibernate");
+    t2.setTitle("Polityka");
     t2.setArticles(new HashSet<Article>(Arrays.asList(art)));
     //adding tag to article
     art.setTags(new HashSet<Tag>(Arrays.asList(t1, t2)));

@@ -68,4 +68,12 @@ public class Article {
   public void setTags(Set<Tag> tags) {
     this.tags = tags;
   }
+
+  @Override
+  public String toString() {
+    return "Article{" +
+            "title='" + title + '\'' +
+            ", content='" + content + '\'' +
+            '}';
+  }
 }

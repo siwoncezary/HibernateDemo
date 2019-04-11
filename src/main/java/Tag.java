@@ -11,7 +11,7 @@ public class Tag {
   @Column (name="id", unique = true, nullable = false)
   private long id;
 
-  @Column(name="title")
+  @Column(name="title", unique = true)
   private String title;
 
   @ManyToMany(mappedBy = "tags")
@@ -39,5 +39,12 @@ public class Tag {
 
   public void setArticles(Set<Article> articles) {
     this.articles = articles;
+  }
+
+  @Override
+  public String toString() {
+    return "Tag{" +
+            "title='" + title + '\'' +
+            '}';
   }
 }
